@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>
+    <%= @topic.title %>
+    <%= link_to "Edit", edit_topic_path, class: "btn btn-primary" %>
+    <%= link_to "Delete", @topic, class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure you want to delete this topic?' } %>
+  </h1>
+  <div class="row">
+    <h6 class="media-heading">
+      <br>
+      <% @topic.bookmarks.each do |bookmark| %>
+        <div class="col-md-3">
+          <%= bookmark.url%>
+        </div>
+      <% end %>
+    </h6>
+  </div>
+</div>
