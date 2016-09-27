@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :topics
+
   devise_for :users
 
   authenticated do
-    root to: 'welcome#show', as: :authenticated_root
+    root to: 'topics#index', as: :authenticated_root
   end
 
   get 'welcome/show'
