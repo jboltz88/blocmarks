@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.new(topic_params)
 
     if @topic.save
       flash[:notice] = "Topic was saved successfully."
@@ -41,7 +41,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
+    @topic = current_user.topics.find(params[:id])
 
     if @topic.destroy
       flash[:notice] = "Topic was successfully deleted."
