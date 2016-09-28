@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Edit <%= @bookmark.url %></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <%= render partial: 'form', locals: { topic: @bookmark.topic, bookmark: @bookmark } %>
+    </div>
+  </div>
+</div>
