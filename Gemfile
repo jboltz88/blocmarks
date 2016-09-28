@@ -60,11 +60,6 @@ group :development do
 
   gem 'quiet_assets' #Less noisy but easier to debug server output
 
-  gem 'letter_opener'
-
-  gem 'letter_opener_web', '~> 1.2.0'
-
-  gem 'launchy'
 end
 
 group :production do
