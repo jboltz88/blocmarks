@@ -3,8 +3,8 @@ class IncomingController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:sender])
-    puts "INCOMING PARAMS HERE: #{params}"
-    unless @user
+    Rails.logger.info ">>>>>>>> INCOMING PARAMS HERE: #{params}"
+    if @user      
       @topic = @user.topics.find_or_create_by(title: params[:subject])
       url = params["body-plain"]
 
