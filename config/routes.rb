@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :bookmarks, except: [:index]
-  end 
+  end
 
   devise_for :users
+
+  post :incoming, to: 'incoming#create'
 
   authenticated do
     root to: 'topics#index', as: :authenticated_root
@@ -13,8 +15,4 @@ Rails.application.routes.draw do
   get 'welcome/show'
 
   root to: 'welcome#show'
-
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
 end
