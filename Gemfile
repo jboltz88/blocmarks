@@ -31,6 +31,12 @@ gem 'bootstrap-sass'
 
 gem 'figaro'
 
+gem 'pundit'
+
+gem 'friendly_id', '~>5.1.0'
+
+gem 'embedly', '~> 1.9'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,12 +57,6 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   gem 'faker'
-
-  gem 'pundit'
-
-  gem 'friendly_id', '~>5.1.0'
-
-  gem 'embedly', '~> 1.9'
 end
 
 group :development do
