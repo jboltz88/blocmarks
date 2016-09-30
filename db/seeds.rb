@@ -1,4 +1,4 @@
-unless Rails.env.production?
+if Rails.env.development?
   10.times do
     user = User.new(
       name: Faker::Name.name,
@@ -13,8 +13,7 @@ unless Rails.env.production?
 
   10.times do
     topic = Topic.create!(
-      title: Faker::App.name,
-      user: users.sample
+      title: Faker::App.name
     )
   end
 
@@ -23,18 +22,19 @@ unless Rails.env.production?
   30.times do
     bookmark = Bookmark.create!(
       url: Faker::Internet.url,
-      topic: topics.sample
+      topic: topics.sample,
+      user: users.sample
     )
   end
-else
-  admin = User.new(
-    name: "admin user",
-    email: "myemail.com",
-    password: "whatever", admin: true
-  )
-  user.skip_confirmation!
-  user.save!
 end
+admin = User.new(
+  name: "admin user",
+  email: "admin@test.com",
+  password: "password",
+  admin: true
+)
+admin.skip_confirmation!
+admin.save!
 
 puts "Seed Data Created"
 puts "#{User.count} users created"

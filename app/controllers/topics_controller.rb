@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  after_action :verify_authorized, only: :destroy
+
   def index
     @topics = Topic.all
   end
@@ -12,7 +14,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = current_user.topics.new(topic_params)
+    @topic = Topic.new(topic_params)
 
     if @topic.save
       flash[:notice] = "Topic was saved successfully."
@@ -41,7 +43,8 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = current_user.topics.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
+    authorize @topic 
 
     if @topic.destroy
       flash[:notice] = "Topic was successfully deleted."

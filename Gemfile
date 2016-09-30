@@ -55,6 +55,8 @@ group :development, :test do
   gem 'pundit'
 
   gem 'friendly_id', '~>5.1.0'
+
+  gem 'embedly', '~> 1.9'
 end
 
 group :development do

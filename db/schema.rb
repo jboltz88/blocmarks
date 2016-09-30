@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930131438) do
+ActiveRecord::Schema.define(version: 20160930191640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,14 +52,12 @@ ActiveRecord::Schema.define(version: 20160930131438) do
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
   end
 
   add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true, using: :btree
-  add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -80,6 +78,7 @@ ActiveRecord::Schema.define(version: 20160930131438) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "slug"
+    t.boolean  "admin"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -91,5 +90,4 @@ ActiveRecord::Schema.define(version: 20160930131438) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "likes", "bookmarks"
   add_foreign_key "likes", "users"
-  add_foreign_key "topics", "users"
 end
