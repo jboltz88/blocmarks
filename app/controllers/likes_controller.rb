@@ -20,7 +20,7 @@ class LikesController < ApplicationController
     like = current_user.likes.find(params[:id])
 
     if like.destroy
-      flash[:notice] = "#{@bookmark} unliked."
+      flash[:notice] = "#{@bookmark.url} unliked."
     else
       flash[:alert] = "Error unliking the bookmark"
     end
