@@ -51,6 +51,8 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   gem 'faker'
+
+  gem 'pundit'
 end
 
 group :development do
