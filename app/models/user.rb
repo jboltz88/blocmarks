@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
 
   has_many :topics, dependent: :nullify
   has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
+  end 
 end
