@@ -3,7 +3,7 @@
     <br><br><br>
     <h1><%= @bookmark.url %></h1>
     <div class="row">
-      <%= render partial: 'likes/like', locals: {topic: @bookmark.topic, bookmark: @bookmark } %>
+      <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
     </div>
     <br>
     <%= link_to "Edit", edit_topic_bookmark_path, class: "btn btn-primary" %>

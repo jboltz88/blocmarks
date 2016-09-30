@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= current_user.name %>'s Profile</h1><br>
+  <h3>Added Bookmarks</h3>
+  <% @user_bookmarks.each do |bookmark| %>
+    <div class="col-md-3">
+      <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
+    </div>
+  <% end %>
+  <br><br><br>
+  <h3>Liked Bookmarks</h3>
+  <% @liked_bookmarks.each do |bookmark| %>
+    <div class="col-md-3">
+      <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
+      <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+    </div>
+  <% end %>
+</div>
