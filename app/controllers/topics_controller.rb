@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def new
@@ -24,11 +24,11 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
     @topic.assign_attributes(topic_params)
 
     if @topic.save

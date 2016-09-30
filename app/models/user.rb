@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_bookmarks, through: :likes, source: :bookmark
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id).first
   end

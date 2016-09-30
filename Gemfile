@@ -53,6 +53,8 @@ group :development, :test do
   gem 'faker'
 
   gem 'pundit'
+
+  gem 'friendly_id', '~>5.1.0'
 end
 
 group :development do

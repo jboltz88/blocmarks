@@ -5,4 +5,6 @@ class Topic < ActiveRecord::Base
 
   validates :title, length: { minimum: 1, maximum: 100 }, presence: true
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end
