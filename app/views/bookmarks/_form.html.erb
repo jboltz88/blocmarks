@@ -11,7 +11,7 @@
   <% end %><br>
   <%= form_group_tag(bookmark.errors[:url]) do %>
     <%= f.label :url %>
-    <%= f.text_field :url, class: 'form-control', placeholder: "Enter bookmark URL" %>
+    <%= f.text_field :url, class: 'form-control', placeholder: "Enter bookmark URL", autofocus: true %>
   <% end %>
   <div class="form-group">
     <br>
