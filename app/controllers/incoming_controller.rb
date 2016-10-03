@@ -5,11 +5,12 @@ class IncomingController < ApplicationController
   def create
     @user = User.find_by(email: params[:sender])
     if @user
-      @topic = @user.topics.find_or_create_by(title: params[:subject])
+      @topic = Topic.find_or_create_by(title: params[:subject])
       @url = params["body-plain"]
 
       @bookmark = @topic.bookmarks.new(
-        url: @url
+        url: @url,
+        user: @user
       )
       @bookmark.save
       head 200
