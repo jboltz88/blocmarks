@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930191640) do
+ActiveRecord::Schema.define(version: 20161002193827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20160930191640) do
   create_table "bookmarks", force: :cascade do |t|
     t.string   "url"
     t.integer  "topic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.string   "thumbnail_url"
   end
 
   add_index "bookmarks", ["topic_id"], name: "index_bookmarks_on_topic_id", using: :btree

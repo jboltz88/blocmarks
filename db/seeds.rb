@@ -19,13 +19,6 @@ if Rails.env.development?
 
   topics = Topic.all
 
-  30.times do
-    bookmark = Bookmark.create!(
-      url: Faker::Internet.url,
-      topic: topics.sample,
-      user: users.sample
-    )
-  end
 end
 admin = User.new(
   name: "admin user",

@@ -8,9 +8,15 @@
     <h6 class="media-heading">
       <br>
       <% @topic.bookmarks.each do |bookmark| %>
-        <div class="col-md-3">
-          <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
-          <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <%= link_to image_tag("#{bookmark.thumbnail_url}"), [bookmark.topic, bookmark] %>
+            <div class="caption">
+              <h3><%= link_to bookmark.url, [bookmark.topic, bookmark] %></h3>
+              <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+            </div>
+          </div>
+
         </div>
       <% end %>
     </h6>
