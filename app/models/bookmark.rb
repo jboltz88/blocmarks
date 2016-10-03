@@ -17,8 +17,7 @@ class Bookmark < ActiveRecord::Base
 
     obj = embedly_api.extract :url => self.url
     o = obj.try(:first)
-    Rails.logger.info ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    image = o.images.try(:first)
+    image = o.images.first
     # assign thumbnail image if an image exists
     assign_attributes(thumbnail_url: image['url']) if image && image['url'].present?
     true
