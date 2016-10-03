@@ -11,7 +11,7 @@
   <% end %><br>
   <%= form_group_tag(topic.errors[:title]) do %>
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', placeholder: "Enter topic title" %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "Enter topic title", autofocus: true %>
   <% end %>
   <div class="form-group">
     <br>
