@@ -20,7 +20,9 @@
                       <%= link_to thumb, [bookmark.topic, bookmark] %>
                     </div>
                     <div class="caption">
-                      <h3><%= link_to bookmark.url, [bookmark.topic, bookmark] %></h3>
+                      <div style="min-height: 6rem;">
+                        <h3><%= link_to bookmark.url, [bookmark.topic, bookmark] %></h3>
+                      </div>
                       <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
                     </div>
                   </div>
