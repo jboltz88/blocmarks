@@ -16,3 +16,10 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .image-clip {
+    width:20rem;
+    height:12rem;
+    overflow:hidden;
+    min-height: 12rem;
+  }
